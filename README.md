@@ -1,14 +1,11 @@
 # jenkinsos
 
-## jenkins入cent osに変更していく予定
-
 こちらのサイトを非常に参考にさせていただく
 
-[こちら](http://shusatoo.net/infra/chef/vagrant-chef-solo-php-mysql-development-environment/)
+[こちら](http://qiita.com/amasok23/items/2483f5f3e9fe371d1d92)
 
-* apache 2.2.15
-* mysql 5.6.28
-* php 5.6.17
+* jdk 1.7
+* Jenkins ver. 1.654
 
 ## Usage
 
@@ -25,30 +22,10 @@
 1. Vagrantにプラグイン導入 `vagrant plugin install vagrant-omnibus`
 1. 任意フォルダ作成 c:\vagrant とします
 1. cd c\vagrant
-1. git clone https://github.com/kugiadoya/phpms_cus.git
-1. cd phpms_cus
+1. git clone https://github.com/kugiadoya/jenkinos.git
+1. cd jenkinsos
 1. vagrant up
 
 ### Specifications
 
-* HostPCのhostsに192.168.33.10 phpms.vmを追加すればhttp://phpms.vmでアクセス可能
-* 上記のバーチャルホスト設定
-
-```
-<VirtualHost *:80>
-    ServerName phpms.vm
-    DocumentRoot /var/www/src/phpms/public
-    <Directory /var/www/src/phpms/public>
-        Options All
-        AllowOverride All
-        Order allow,deny
-        Allow from all
-    </Directory>
-</VirtualHost>
-```
-
-* HostPCからGuestPCのMySQLにアクセス可能(ただしHostにMySQLクライアントインストール済)
-
-```
-mysql -h 192.168.33.10 -u root -proot
-```
+* http://192.168.33.55:8080 でアクセス
