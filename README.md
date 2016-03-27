@@ -1,4 +1,6 @@
-# phpms_cus
+# jenkinsos
+
+## jenkins入cent osに変更していく予定
 
 こちらのサイトを非常に参考にさせていただく
 
