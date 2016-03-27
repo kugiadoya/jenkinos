@@ -25,7 +25,7 @@ Vagrant.configure(2) do |config|
   config.vm.network "forwarded_port", guest: 3306, host: 1234
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network "private_network", ip: "192.168.33.10"
+  config.vm.network "private_network", ip: "192.168.33.55"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -71,19 +71,15 @@ Vagrant.configure(2) do |config|
     chef.cookbooks_path = "chef/site-cookbooks/"
     chef.run_list = %w[
       recipe[localedef]
-      recipe[remi]
-      recipe[apache]
-      recipe[apache::phpms]
-      recipe[php]
-      recipe[mysql]
+      recipe[jenkins]
     ]
-    
+
     chef.json = {
       mysql: {
         password: "root"
       }
     }
   end
- 
+
   config.omnibus.chef_version = :latest
 end
